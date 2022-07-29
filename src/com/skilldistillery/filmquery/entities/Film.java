@@ -49,7 +49,7 @@ public Film(int id, String title, String description, int releaseYear, int langu
 		return "Film id= " + id + ", title= " + title + ", description= " + description + ", releaseYear= "
 				+ releaseYear + ", languageId= " + languageId + ", duration= " + duration + ", rentRate= " + rentRate
 				+ ", length= " + length + ", replaceCost= " + replaceCost + ", rating= " + rating
-				+ ", specialFeatures= " + specialFeatures + ", language= " + language;
+				+ ", specialFeatures= " + specialFeatures + ", language= " + language + " actors= " + actors + "\n";
 	}
 
 //HASHCODE AND EQUALS

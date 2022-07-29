@@ -20,7 +20,7 @@ public class Actor {
 
 	@Override
 	public String toString() {
-		return "Actor actorId= " + actorId + ", actorFirstName= " + actorFirstName + ", actorLastName= "
+		return "Actor ID: " + actorId + " First Name: " + actorFirstName + " Last Name: "
 				+ actorLastName;
 	}
 

@@ -23,8 +23,9 @@ public class Film {
 	public Film() {
 		super();
 	}
+
 //FULL ARGS CONSTRUCTOR
-public Film(int id, String title, String description, int releaseYear, int languageId, int duration,
+	public Film(int id, String title, String description, int releaseYear, int languageId, int duration,
 			double rentRate, int length, double replaceCost, String rating, String specialFeatures, String language,
 			List<Actor> actors) {
 		super();
@@ -41,15 +42,20 @@ public Film(int id, String title, String description, int releaseYear, int langu
 		this.specialFeatures = specialFeatures;
 		this.language = language;
 		this.actors = actors;
+
 	}
 
-	//TOSTRING
+	// TOSTRING film title, year, rating, description, language, actors
 	@Override
 	public String toString() {
-		return "Film id= " + id + ", title= " + title + ", description= " + description + ", releaseYear= "
-				+ releaseYear + ", languageId= " + languageId + ", duration= " + duration + ", rentRate= " + rentRate
-				+ ", length= " + length + ", replaceCost= " + replaceCost + ", rating= " + rating
-				+ ", specialFeatures= " + specialFeatures + ", language= " + language + " actors= " + actors + "\n";
+		return "# FILM TITLE #: " + title + " # YEAR FILM WAS RELEASED #: " + releaseYear + " # FILM DESCRIPTION #: " + description
+				+ " # LANGAGE #: " + language + "\n" + "# CAST #: " + actors;
+
+//				"Film id= " + id + ", title= " + title + ", description= " + description + ", releaseYear= "
+//				+ releaseYear +  ", duration= " + duration + ", rentRate= " + rentRate
+//				+ ", length= " + length + ", replaceCost= " + replaceCost + ", rating= " + rating
+//				+ ", specialFeatures= " + specialFeatures + ", language= " + language + " actors= " + actors + "\n";
+
 	}
 
 //HASHCODE AND EQUALS
@@ -79,6 +85,9 @@ public Film(int id, String title, String description, int releaseYear, int langu
 // GETTERS AND SETTERS
 
 	public int getId() {
+		if (id == 0) {
+			return 0;
+		}
 		return id;
 	}
 

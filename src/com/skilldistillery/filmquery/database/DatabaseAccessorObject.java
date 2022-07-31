@@ -40,7 +40,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film.setSpecialFeatures(newFilm.getString("special_features"));
 				film.setLanguage(newFilm.getString("name"));
 				film.setActors(findActorsByFilmId(filmId));
-				
+
 			}
 			newFilm.close();
 			preStmt.close();
@@ -50,6 +50,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 		return film;
 	}
+
 	@Override
 	public List<Film> findWithKeyWord(String keyword) {
 		List<Film> films = new ArrayList<>();
@@ -78,7 +79,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				film.setLanguage(newFilm.getString("name"));
 				film.setActors(findActorsByFilmId(newFilm.getInt("id")));
 				films.add(film);
-				
+
 			}
 			newFilm.close();
 			preStmt.close();
@@ -88,11 +89,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 		return films;
 	}
-	
-	
-	
-	
-	
+
 	@Override
 	public Actor findActorById(int actorId) {
 		Actor actor = null;
@@ -103,11 +100,11 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			PreparedStatement preStmt = conn.prepareStatement(stmt);
 			preStmt.setInt(1, actorId);
 			ResultSet newActor = preStmt.executeQuery();
-			while(newActor.next()) {
+			while (newActor.next()) {
 				actor = new Actor();
-			actor.setActorId(newActor.getInt("id"));
-			actor.setActorFirstName(newActor.getString("first_name"));
-			actor.setActorLastName(newActor.getString("last_name"));
+				actor.setActorId(newActor.getInt("id"));
+				actor.setActorFirstName(newActor.getString("first_name"));
+				actor.setActorLastName(newActor.getString("last_name"));
 			}
 			newActor.close();
 			preStmt.close();
@@ -130,7 +127,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			PreparedStatement preStmt = conn.prepareStatement(stmt);
 			preStmt.setInt(1, filmId);
 			ResultSet newActors = preStmt.executeQuery();
-			while(newActors.next()) {
+			while (newActors.next()) {
 				actor = new Actor();
 				actor.setActorId(newActors.getInt("id"));
 				actor.setActorFirstName(newActors.getString("first_name"));

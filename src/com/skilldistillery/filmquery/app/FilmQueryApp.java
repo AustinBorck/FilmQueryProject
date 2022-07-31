@@ -1,12 +1,12 @@
 package com.skilldistillery.filmquery.app;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import com.skilldistillery.filmquery.database.DatabaseAccessor;
 import com.skilldistillery.filmquery.database.DatabaseAccessorObject;
-import com.skilldistillery.filmquery.entities.Actor;
 import com.skilldistillery.filmquery.entities.Film;
 
 public class FilmQueryApp {
@@ -48,8 +48,9 @@ public class FilmQueryApp {
 			System.out.println("3. Exit the database application.");
 			String userChoice = input.nextLine();
 
-			switch (userChoice) {
+			switch (userChoice.toLowerCase()) {
 			case "1":
+			case "one":
 				System.out.println();
 				System.out.print("Please enter the movies ID number: ");
 				int userIdNum = input.nextInt();
@@ -64,16 +65,18 @@ public class FilmQueryApp {
 					break;
 				}
 			case "2":
+			case "two":
 				System.out.println();
 				System.out.print("Please enter the keyword: ");
 				String userKeyword = input.nextLine();
-				if (db.findWithKeyWord(userKeyword).size() == 0) {
+				List<Film> keywordFilms = db.findWithKeyWord(userKeyword);
+				if (keywordFilms.size() == 0) {
 					System.out.println("------------------------------------------------");
 					System.out.println("| I'm sorry that movie is not in our database. |");
 					System.out.println("------------------------------------------------");
 					break;
 				} else {
-					System.out.println(db.findWithKeyWord(userKeyword));
+					System.out.println(keywordFilms);
 					break;
 				}
 			case "3":

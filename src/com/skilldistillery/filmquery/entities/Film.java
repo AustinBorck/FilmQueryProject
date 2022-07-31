@@ -48,8 +48,11 @@ public class Film {
 	// TOSTRING film title, year, rating, description, language, actors
 	@Override
 	public String toString() {
-		return "# FILM TITLE #: " + title + " # YEAR FILM WAS RELEASED #: " + releaseYear + " # FILM DESCRIPTION #: " + description
-				+ " # LANGAGE #: " + language + "\n" + "# CAST #: " + actors;
+		return "\t============ FILM ============\n(Movie title): " + title + " (Year it was released): " + releaseYear +
+				 " (Language): " + language + "\n\t============ DESCRIPTION OF THE FILM ============\n"
+				+ description +
+				
+				"\n" + "\t============ CAST ============\n" + actors +"\n\n";
 
 //				"Film id= " + id + ", title= " + title + ", description= " + description + ", releaseYear= "
 //				+ releaseYear +  ", duration= " + duration + ", rentRate= " + rentRate
